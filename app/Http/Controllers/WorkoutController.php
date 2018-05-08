@@ -122,6 +122,7 @@ class WorkoutController extends Controller
     						$allWorkouts->reps = $exercise->reps;
     						$allWorkouts->rest = $exercise->rest;
     						$allWorkouts->weight = request( $et->id );
+                            $allWorkouts->format_type = $workout->format_type;
     						$allWorkouts->save();
     					}	
     				}
@@ -148,6 +149,7 @@ class WorkoutController extends Controller
     						$allWorkouts->moderate_weight = request($moderateSet);
     						$allWorkouts->moderate_heavy_weight = request($moderate_heavySet);
     						$allWorkouts->heavy_weight = request($heavySet);
+                            $allWorkouts->format_type = $workout->format_type;
     						$allWorkouts->save();
     					}
     				}
