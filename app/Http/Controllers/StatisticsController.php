@@ -92,12 +92,13 @@ class StatisticsController extends Controller
         $workout = Workout_Sessions::where('id', $id)->first();
         $workout_sessions_exercises_normal = Workout_Sessions_Exercises_Normal::get();
         $workout_sessions_exercises_fibonacci = Workout_Sessions_Exercises_Fibonacci::get();
+        $allworkouts = AllWorkouts2::get();
         $eTypes = ExerciseType3::get();
         $date = $workout->created_at;
         $date1 = $date->format('M jS Y');
 
 
-        return view ('workouts.preview2', compact('workout', 'eTypes', 'user_id', 'workout_sessions_exercises_normal', 'workout_sessions_exercises_fibonacci', 'date1'));
+        return view ('workouts.preview2', compact('workout', 'eTypes', 'user_id', 'workout_sessions_exercises_normal', 'workout_sessions_exercises_fibonacci', 'date1', 'allworkouts'));
     }
 
     public function indexer($value='')

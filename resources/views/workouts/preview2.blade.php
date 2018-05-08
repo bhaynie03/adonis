@@ -24,7 +24,7 @@
 		  </thead>
 		  <tbody align="left">
 
-		@foreach($workout_sessions_exercises_normal as $wse)
+		@foreach($allworkouts as $wse)
 			@if($wse->ws_id == $workout->id)
 				@foreach ($eTypes as $et)
 					@if ($et->id == $wse->exercise_type)
@@ -40,7 +40,7 @@
 		    @endif
 	    @endforeach
 	@elseif($workout->format_type == 2)
-		@foreach($workout_sessions_exercises_fibonacci as $wse)
+		@foreach($allworkouts as $wse)
 			@php
 				$set = 0;
 			@endphp
