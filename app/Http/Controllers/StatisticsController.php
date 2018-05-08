@@ -49,8 +49,8 @@ class StatisticsController extends Controller
     	$workout_sessions = Workout_Sessions::get();
     	$workout_sessions_exercises_normal = Workout_Sessions_Exercises_Normal::get();
     	$workout_sessions_exercises_fibonacci = Workout_Sessions_Exercises_Fibonacci::get();
-        $max_normal_weight = Workout_Sessions_Exercises_Normal::where('user_id', $user_id)->where('exercise_type', $exercise_type)->max('weight');
-        $max_fibonacci_weight = Workout_Sessions_Exercises_Fibonacci::where('user_id', $user_id)->where('exercise_type', $exercise_type)->max('heavy_weight');
+        $max_normal_weight = AllWorkouts2::where('user_id', $user_id)->where('exercise_type', $exercise_type)->max('weight');
+        $max_fibonacci_weight = AllWorkouts2::where('user_id', $user_id)->where('exercise_type', $exercise_type)->max('heavy_weight');
 
         if(!empty($max_fibonacci_weight) and !empty($max_normal_weight)){
             if($max_normal_weight >= $max_fibonacci_weight){
